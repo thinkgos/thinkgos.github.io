@@ -1,8 +1,9 @@
 
-# Welcome to GitHub Pages
+# 欢迎来到`流浪红尘`笔记
 
+    专注于物联网嵌入式c,golang,docker,在python,shell上的小菜鸟,喜欢后端,嵌入式网关,嵌入式设备的开发
 
-## 一.golang
+## 一. golang
 
 ## 二. python
 
