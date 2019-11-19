@@ -11,6 +11,7 @@
 
 - [k8s安装](k8s/k8s安装.md)
 - [etcd安装](k8s/etcd安装.md)
+- [cfssl证书生成](k8s/cfssl.md)
 
 ## 四. web
 
