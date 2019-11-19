@@ -32,14 +32,14 @@
 
 字段说明:
 
-- "ca-config.json"：可以定义多个 profiles，分别指定不同的过期时间、使用场景等参数；后续在签名证书时使用某个 profile；
-- "signing"：表示该证书可用于签名其它证书；生成的 ca.pem 证书中 CA=TRUE；
+- "ca-config.json"：可以定义多个 profiles，分别指定不同的过期时间、使用场景等参数；后续在签名证书时使用某个profile；
+- "signing"：表示该证书可用于签名其它证书；生成的ca.pem证书中CA=TRUE；
 - "server auth"：表示client可以用该 CA 对server提供的证书进行验证；
-- "client auth"：表示server可以用该CA对client提供的证书进行验证；
+- "client auth"：表示server可以用该 CA 对client提供的证书进行验证；
 
 ### 2. ca证书签名请求`ca-csr.json`
 
-> 就是申请证书的人，你得把你的基本信息告诉证书颁发中心吧，证书颁发中心，根据你填写的基本信息，来生成你的证书啊。
+> 就是申请证书的人，你得把你的基本信息告诉证书颁发中心吧，证书颁发中心，根据你填写的基本信息，来生成你的证书。
 
 ```json
 {
@@ -47,12 +47,12 @@
     "key": {
         "algo": "rsa",
         "size": 2048
-        },
+    },
     "names": [
         {
             "C": "CN",
-            "ST": "shenzhen",
-            "L": "shenzhen",
+            "ST": "fuzhou",
+            "L": "fuzhou",
             "O": "etcd",
             "OU": "System"
         }
@@ -83,34 +83,35 @@ cfssl gencert -initca ca-csr.json | cfssljson -bare ca
 
 ```json
 {
-  "CN": "etcd",
-  "hosts": [
-    "127.0.0.1",
-    "172.16.91.195"
-  ],
-  "key": {
-    "algo": "rsa",
-    "size": 2048
-  },
-  "names": [
-    {
-      "C": "CN",
-      "ST": "shenzhen",
-      "L": "shenzhen",
-      "O": "etcd",
-      "OU": "System"
-    }
-  ]
+    "CN": "etcd",
+    "hosts": [
+        "127.0.0.1",
+        "172.16.91.195"
+    ],
+    "key": {
+        "algo": "rsa",
+        "size": 2048
+    },
+    "names": [
+        {
+            "C": "CN",
+            "ST": "fuzhou",
+            "L": "fuzhou",
+            "O": "etcd",
+            "OU": "System"
+        }
+    ]
 }
 ```
 
 - 如果 hosts 字段不为空则需要指定授权使用该证书的IP或域名列表，由于该证书后续被 etcd 集群使用，所以填写IP即可。因为本次部署etcd是单台，那么则需要填写单台的IP地址即可。  
-- “C”：国家 该"hosts"是可以使用该证书域名列表。‘CN’，kube-apiserver从证书中提取该字段作为请求的用户名 (User Name)；浏览器使用该字段验证网站是否合法;
+- ‘CN’，kube-apiserver从证书中提取该字段作为请求的用户名 (User Name)；浏览器使用该字段验证网站是否合法;
 - "names"值实际上是名称对象的列表。每个名称对象应至少包含一个“C”，“L”，“O”，“OU”或“ST”值（或这些的任意组合）。这些值是：
-- “L”：地区或城市（如城市或城镇名称）
-- “O”：组织 Organization，kube-apiserver从证书中提取该字段作为请求用户所属的组 (Group)；
-- “OU”：组织单位，如负责拥有密钥的部门; 它也可以用于“做生意”（DBS）的名称
-- “ST”：州或省
+  - “C”：国家 该"hosts"是可以使用该证书域名列表。
+  - “L”：地区或城市（如城市或城镇名称）
+  - “O”：组织 Organization，kube-apiserver从证书中提取该字段作为请求用户所属的组 (Group)；
+  - “OU”：组织单位，如负责拥有密钥的部门; 它也可以用于“做生意”（DBS）的名称
+  - “ST”：州或省
 
 ### 2. 生成etcd证书
 
