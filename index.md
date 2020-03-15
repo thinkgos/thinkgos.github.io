@@ -5,6 +5,9 @@
 
 ## 一. golang
 
+- [包推荐: go-cmp之比较值](package/go-cmp/go-cmp.md)
+- [包推荐: go-cmp之比较值 - 补充](package/go-cmp/go-cmp-addit.md)
+
 ## 二. python
 
 ## 三. k8s
