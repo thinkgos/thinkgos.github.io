@@ -120,3 +120,6 @@ cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=etcd
 ```
 
 > > 生成`ca.csr`,`ca-key.pem`,`ca.pem`
+
+
+
