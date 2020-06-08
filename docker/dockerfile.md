@@ -1,4 +1,5 @@
 # dockerfile
+
 Docker 可以通过 `Dockerfile` 的内容来自动构建镜像.
 - 每条保留字指令都必须为大写字母且后面要跟至少一个参数（即不能只写关键字然后不跟参数）
 - 指令按照从上到下，顺序执行
@@ -53,11 +54,11 @@ Docker 可以通过 `Dockerfile` 的内容来自动构建镜像.
 -   每条`RUN`指令将在当前镜像基础上执行指定命令，并提交为新的镜像，后续的RUN都在之前`RUN`提交后的镜像为基础，镜像是分层的，可以通过一个镜像的任何一个历史提交点来创建，类似源码的版本控制 。
 - exec方式会被解析为一个 JSON 数组，所以必须使用双引号而不是单引号。exec 方式不会调用一个命令 shell，所以也就不会继承相应的变量，如`RUN [ "echo", "$HOME" ]`这种方式是不会达到输出 HOME 变量的，正确的方式应该是用shell方式`RUN [ "sh", "-c", "echo", "$HOME" ]`,`RUN`产生的缓存在下一次构建的时候是不会失效的，会被重用，可以使用--no-cache选项，即`docker build --no-cache`，如此便不会缓存。
 
- ## **6. EXPOSE**
+## **6. EXPOSE**
 
 `EXPOSE <port> [<port>...]` 告诉 Docker 服务端容器对外映射的本地端口，需要在 docker run 的时候使用-p或者-P选项生效。
 
- ## **7. ENV**
+## **7. ENV**
 
 用法:
 1. `ENV <key> <value>       # 只能设置一个变量`
@@ -75,7 +76,7 @@ ENV myDog Rex The Dog
 ENV myCat fluffy
 ```
 
- ## **8. ADD**
+## **8. ADD**
 
 用法: 
 - `ADD <src>... <dest>`
@@ -91,7 +92,7 @@ ADD hom?.txt /mydir/    # ? is replaced with any single character
 - 路径必须是 `Dockerfile` 所在路径的相对路径
 - 如果是一个目录，只会复制目录下的内容，而目录本身则不会被复制
 
- ## **9. COPY**
+## **9. COPY**
 
 用法: 
 
@@ -115,7 +116,7 @@ ADD hom?.txt /mydir/    # ? is replaced with any single character
 `CMD`会在启动容器的时候执行，build 时不执行，而`RUN`只是在构建镜像的时候执行，后续镜像构建完成之后，启动容器就与RUN无关了，这个初学者容易弄混这个概念，这里简单注解一下。
 
 
- ## **11. ENTRYPOINT**
+## **11. ENTRYPOINT**
 
 用法: 
 1. shell格式: `ENTRYPOINT  ["executable", "param1", "param2"]`
@@ -155,13 +156,14 @@ ENTRYPOINT top -b
 CMD --ignored-param1 # --ignored-param2 ... --ignored-param3 ... 依此类推
 ```
 
- ## **12. VOLUME**
+## **12. VOLUME**
+
 用法: `VOLUME ["/data"]`创建一个可以从本地主机或其他容器挂载的挂载点.
 
 ## **13. USER**
 用法: `USER daemon`指定运行容器时的用户名或 UID，后续的`RUN`、`CMD`、`ENTRYPOINT`也会使用指定用户。
 
- ## **14. WORKDIR**
+## **14. WORKDIR**
 用法: `WORKDIR /path/to/workdir`
 为后续的`RUN`、`CMD`、`ENTRYPOINT`指令配置工作目录。可以使用多个`WORKDIR`指令，后续命令如果参数是相对路径，则会基于之前命令指定的路径。
 
@@ -197,7 +199,8 @@ ADD . /app/src
 RUN /usr/local/bin/python-build --dir /app/src
 ```
 使用`ONBUILD`指令的镜像，推荐在标签中注明，例如 ruby:1.9-onbuild。
-## **16. STOPSIGNAL **
+
+## **16. STOPSIGNAL**
 
 用法: `STOPSIGNAL signal`,设置容器退出时，Docker Daemon向容器发送的信号量 
 
