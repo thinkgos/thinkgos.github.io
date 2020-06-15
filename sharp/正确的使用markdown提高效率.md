@@ -64,7 +64,9 @@ Markdown 编写的文档后缀为 **.md**, **.markdown**。
 效果:
 
 > 下面是华丽的分隔线
+>
 >  ---
+>
 > 下面同样也是华丽的分隔线
 > 
 > ***
@@ -171,11 +173,13 @@ c. 图片
 
 效果:
 
-a. 外链
-[百度一下](http://www.baidu.com)
-b. 邮箱链接
-<thinkgo@aliyun.com>
-c. 图片
+a. 外链  
+[百度一下](http://www.baidu.com)  
+
+b. 邮箱链接  
+<thinkgo@aliyun.com>  
+
+c. 图片  
 ![我是图片](https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2400373211,258971436&fm=26&gp=0.jpg))
 
 ### 8. 表格
