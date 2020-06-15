@@ -2,10 +2,8 @@
 
 ## 一. 介绍
 
-Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。
-
-Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。
-
+Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。  
+Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。  
 Markdown 编写的文档后缀为 **.md**, **.markdown**。
 
 ## 二. 基本语法
@@ -45,10 +43,10 @@ Markdown 编写的文档后缀为 **.md**, **.markdown**。
 
 效果:
 
-> *斜体*
-> **粗体**
-> ***斜体并加粗***
-> ~~我是删除线~~
+> *斜体*  
+> **粗体**  
+> ***斜体并加粗***  
+> ~~我是删除线~~  
 
 ### 3. 分隔线
 
@@ -165,8 +163,10 @@ c. 任务列表
 ```
 a. 外链
 [百度一下](http://www.baidu.com)
+
 b. 邮箱链接
 <thinkgo@aliyun.com>
+
 c. 图片
 ![我是图片](https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2400373211,258971436&fm=26&gp=0.jpg)
 ```
@@ -205,7 +205,7 @@ a. 换行
 
 > 方法1: 连续两个以上空格+回车
 >
-> 方法2: 使用html语言换行标签: <br>
+> 方法2: 使用html语言换行标签: `<br>`
 
 b. 缩进字符
 
@@ -236,10 +236,7 @@ e. 表情包,并不是所有markdown都支持
 [表情包参考地址](https://www.webfx.com/tools/emoji-cheat-sheet/)
 
 
-
 ## 二. markdown工具
-
-
 
 - [typora](https://www.typora.io/)  new way to read & write markdown.
 - [typora教程](https://www.cnblogs.com/hider/p/11614688.html) 全网最全教程
